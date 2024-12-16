@@ -993,25 +993,27 @@ body {
   animation: fadeInText 2s ease-in-out forwards;
 }
 .text-block--left {
-  top: 10%;
-  left: 5%;
+  top: 5%;
+  left: 2%;
   text-align: left;
 }
 .text-block--left .line1 {
   animation-delay: 5s;
 }
 .text-block--left .line2 {
+  margin-top: 1rem;
   animation-delay: 7s;
 }
 .text-block--right {
-  top: 10%;
-  right: 5%;
+  top: 5%;
+  right: 2%;
   text-align: right;
 }
 .text-block--right .line1 {
   animation-delay: 9s;
 }
 .text-block--right .line2 {
+  margin-top: 1rem;
   animation-delay: 11s;
 }
 

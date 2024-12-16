@@ -976,6 +976,34 @@ body {
   animation: growing-grass-ans 1s 2s backwards;
 }
 
+.messages {
+  position: absolute;
+  bottom: 5vmin;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #6bf0ff;
+  font-family: Arial, sans-serif;
+  font-size: 2vmin;
+  opacity: 0;
+  animation: fade-in-text 3s ease-out forwards;
+  animation-delay: 6s;
+}
+
+.message {
+  margin: 1vmin 0;
+}
+
+@keyframes fade-in-text {
+  0% {
+    opacity: 0;
+    transform: translateY(2vmin);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 @keyframes growing-grass-ans {
   0% {
     transform: scale(0);

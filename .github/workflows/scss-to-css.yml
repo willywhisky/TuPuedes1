@@ -13,6 +13,8 @@ jobs:
     name: Compile SCSS
     runs-on: ubuntu-latest
 
+    permissions:
+      contents: write  # Permitir escritura en el reposito
     steps:
       # 1. Checkout del código fuente
       - name: Checkout Repository

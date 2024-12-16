@@ -1382,37 +1382,6 @@ body {
   animation: growing-grass-ans 1s 2s backwards;
 }
 
-// Estilo del contenedor de mensajes
-.messages {
-  position: absolute;
-  bottom: 5vmin; // Margen inferior
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #6bf0ff; // Color respetando la paleta
-  font-family: Arial, sans-serif;
-  font-size: 2vmin;
-  opacity: 0; // Inicialmente invisible
-  animation: fade-in-text 3s ease-out forwards;
-  animation-delay: 6s; // Aparece después de las animaciones existentes
-}
-
-// Mensajes individuales
-.message {
-  margin: 1vmin 0;
-}
-
-// Animación de aparición del texto
-@keyframes fade-in-text {
-  0% {
-    opacity: 0;
-    transform: translateY(2vmin);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 @keyframes growing-grass-ans {
   0% {
@@ -1422,4 +1391,46 @@ body {
 
 .not-loaded * {
   animation-play-state: paused !important;
+}
+/* Contenedor de mensajes */
+.messages {
+  position: absolute;
+  bottom: 10vh; /* Posición desde el borde inferior */
+  width: 100%;
+  text-align: center;
+  font-family: 'Poppins', sans-serif; /* Fuente estilizada */
+  font-size: 1.5rem;
+  color: #ffffff; /* Letras en blanco */
+
+  .message {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+    margin: 0;
+
+    /* Alineación y delays específicos */
+    @for $i from 1 through 4 {
+      &:nth-child(#{$i}) {
+        @if $i <= 2 {
+          text-align: left;
+          margin-left: 10vw;
+        } @else {
+          text-align: right;
+          margin-right: 10vw;
+        }
+        animation-delay: #{$i * 2 - 1}s; /* Delay progresivo: 1s, 3s, 5s, 7s */
+      }
+    }
+  }
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

@@ -4,28 +4,39 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
-  build:
+  compile-scss:
+    name: Compile SCSS
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      # 1. Checkout del código fuente
+      - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Install Node.js
+      # 2. Configurar Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '20'
 
+      # 3. Instalar Sass
       - name: Install Sass
-        run: npm install -g sass
+        run: |
+          npm install -g sass
 
+      # 4. Compilar SCSS a CSS
       - name: Compile SCSS
-        run: sass styles.scss styles.css
+        run: |
+          sass styles.scss:style.css
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      # 5. Subir los cambios de CSS al repositorio
+      - name: Commit and Push CSS
+        uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          commit_message: "Auto-compiled SCSS to CSS"
+          file_pattern: style.css

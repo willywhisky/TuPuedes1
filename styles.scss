@@ -1392,9 +1392,6 @@ body {
   }
 }
 
-.not-loaded * {
-  animation-play-state: paused !important;
-}
 .text-block {
   position: absolute;
   color: #ffffff;
@@ -1406,28 +1403,28 @@ body {
   animation: fadeInText 2s ease-in-out forwards;
 
   &--left {
-    top: 5%;
+    top: 10%;
     left: 5%;
     text-align: left;
 
     .line1 {
-      animation-delay: 0.5s;
+      animation-delay: 5s; // Aparece después de las animaciones de las flores
     }
     .line2 {
-      animation-delay: 1.5s;
+      animation-delay: 7s;
     }
   }
 
   &--right {
-    top: 5%;
+    top: 10%;
     right: 5%;
     text-align: right;
 
     .line1 {
-      animation-delay: 2.5s;
+      animation-delay: 9s;
     }
     .line2 {
-      animation-delay: 3.5s;
+      animation-delay: 11s;
     }
   }
 }
@@ -1442,3 +1439,4 @@ body {
     transform: translateY(0);
   }
 }
+

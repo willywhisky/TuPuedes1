@@ -1403,27 +1403,29 @@ body {
   animation: fadeInText 2s ease-in-out forwards;
 
   &--left {
-    top: 10%;
-    left: 5%;
+    top: 5%; // Más cerca del borde superior
+    left: 2%; // Pegado al lateral izquierdo
     text-align: left;
 
     .line1 {
       animation-delay: 5s; // Aparece después de las animaciones de las flores
     }
     .line2 {
+      margin-top: 1rem; // Espacio entre líneas
       animation-delay: 7s;
     }
   }
 
   &--right {
-    top: 10%;
-    right: 5%;
+    top: 5%; // Más cerca del borde superior
+    right: 2%; // Pegado al lateral derecho
     text-align: right;
 
     .line1 {
       animation-delay: 9s;
     }
     .line2 {
+      margin-top: 1rem; // Espacio entre líneas
       animation-delay: 11s;
     }
   }
@@ -1439,4 +1441,3 @@ body {
     transform: translateY(0);
   }
 }
-

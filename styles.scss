@@ -1395,45 +1395,73 @@ body {
 .not-loaded * {
   animation-play-state: paused !important;
 }
-/* Contenedor de mensajes */
 .messages {
   position: absolute;
-  bottom: 10vh; /* Posición desde el borde inferior */
+  bottom: 20vh; // Eleva un poco el texto
   width: 100%;
-  text-align: center;
-  font-family: 'Poppins', sans-serif; /* Fuente estilizada */
-  font-size: 1.5rem;
-  color: #ffffff; /* Letras en blanco */
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.2rem;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 
   .message {
+    position: absolute;
     opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-    margin: 0;
+    animation: fadeIn 1.5s ease-out forwards, sparkle 2s ease-in-out infinite;
+    white-space: nowrap;
 
-    /* Alineación y delays específicos */
-    @for $i from 1 through 4 {
-      &:nth-child(#{$i}) {
-        @if $i <= 2 {
-          text-align: left;
-          margin-left: 10vw;
-        } @else {
-          text-align: right;
-          margin-right: 10vw;
-        }
-        animation-delay: #{$i * 2 - 1}s; /* Delay progresivo: 1s, 3s, 5s, 7s */
-      }
+    // Primer bloque a la izquierda
+    &:nth-child(1) {
+      left: 5%;
+      top: 60%;
+      text-align: left;
+      animation-delay: 1s;
+    }
+
+    &:nth-child(2) {
+      left: 5%;
+      top: 65%;
+      text-align: left;
+      animation-delay: 2s;
+    }
+
+    // Segundo bloque a la derecha
+    &:nth-child(3) {
+      right: 5%;
+      top: 60%;
+      text-align: right;
+      animation-delay: 3s;
+    }
+
+    &:nth-child(4) {
+      right: 5%;
+      top: 65%;
+      text-align: right;
+      animation-delay: 4s;
     }
   }
 }
 
-/* Animación de aparición */
+// Animación de entrada
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(30px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
+  }
+}
+
+// Efecto "fuegos artificiales" sutil
+@keyframes sparkle {
+  0%, 100% {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.7), 0 0 10px rgba(145, 233, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 15px rgba(145, 233, 255, 0.7);
   }
 }

@@ -1392,48 +1392,43 @@ body {
   }
 }
 .text-container {
-  position: absolute;
-  width: 100%;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.2vmin;
-  font-weight: 400;
-  color: #ffffff;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-  line-height: 1.5;
+  position: absolute; // Asegura posición absoluta respecto a body
+  top: 5%;           // Ajusta la posición vertical a un 5% de la pantalla
+  left: 2%;          // Espacio desde el borde izquierdo
+  width: 40%;        // Controla el ancho del bloque para no expandirse demasiado
+  color: #ffffff;    // Texto blanco
+  font-family: 'Lora', serif; // Una fuente elegante y legible
+  font-size: 1.5vw;  // Tamaño de texto adaptable a la pantalla
+  text-align: left;
 
-  // Primer bloque: esquina superior izquierda
-  .text-left {
-    position: absolute;
-    left: 5%;
-    top: 8%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8vmin;
-    animation: fade-in 2s ease forwards;
+  &.right { // Bloque derecho
+    left: auto;       // Resetea el valor de `left`
+    right: 2%;        // Ajusta el espacio desde el borde derecho
+    text-align: right;
   }
 
-  // Segundo bloque: esquina superior derecha
-  .text-right {
-    position: absolute;
-    right: 5%;
-    top: 12%;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8vmin;
-    animation: fade-in 2s ease forwards;
-    animation-delay: 2.5s;
+  p {
+    margin: 0;                // Elimina márgenes
+    opacity: 0;               // Inicia invisible
+    animation: fade-in 2s forwards; // Animación de entrada
+  }
+
+  p:nth-child(1) {
+    animation-delay: 4s; // Retraso para el primer párrafo
+  }
+  p:nth-child(2) {
+    animation-delay: 6s; // Retraso para el segundo párrafo
   }
 }
 
-// Animación de aparición
+// Animación de entrada
 @keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(30px); // Efecto sutil de desplazamiento hacia arriba
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
-

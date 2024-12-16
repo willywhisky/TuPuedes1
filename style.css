@@ -1,3 +1,4 @@
+@charset "UTF-8";
 *,
 *::after,
 *::before {
@@ -976,34 +977,6 @@ body {
   animation: growing-grass-ans 1s 2s backwards;
 }
 
-.messages {
-  position: absolute;
-  bottom: 5vmin;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-  color: #6bf0ff;
-  font-family: Arial, sans-serif;
-  font-size: 2vmin;
-  opacity: 0;
-  animation: fade-in-text 3s ease-out forwards;
-  animation-delay: 6s;
-}
-
-.message {
-  margin: 1vmin 0;
-}
-
-@keyframes fade-in-text {
-  0% {
-    opacity: 0;
-    transform: translateY(2vmin);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 @keyframes growing-grass-ans {
   0% {
     transform: scale(0);
@@ -1011,6 +984,55 @@ body {
 }
 .not-loaded * {
   animation-play-state: paused !important;
+}
+
+/* Contenedor de mensajes */
+.messages {
+  position: absolute;
+  bottom: 10vh; /* Posición desde el borde inferior */
+  width: 100%;
+  text-align: center;
+  font-family: "Poppins", sans-serif; /* Fuente estilizada */
+  font-size: 1.5rem;
+  color: #ffffff; /* Letras en blanco */
+}
+.messages .message {
+  opacity: 0;
+  animation: fadeIn 1s ease-in forwards;
+  margin: 0;
+  /* Alineación y delays específicos */
+}
+.messages .message:nth-child(1) {
+  text-align: left;
+  margin-left: 10vw;
+  animation-delay: 1s; /* Delay progresivo: 1s, 3s, 5s, 7s */
+}
+.messages .message:nth-child(2) {
+  text-align: left;
+  margin-left: 10vw;
+  animation-delay: 3s; /* Delay progresivo: 1s, 3s, 5s, 7s */
+}
+.messages .message:nth-child(3) {
+  text-align: right;
+  margin-right: 10vw;
+  animation-delay: 5s; /* Delay progresivo: 1s, 3s, 5s, 7s */
+}
+.messages .message:nth-child(4) {
+  text-align: right;
+  margin-right: 10vw;
+  animation-delay: 7s; /* Delay progresivo: 1s, 3s, 5s, 7s */
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

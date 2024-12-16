@@ -1391,53 +1391,49 @@ body {
     transform: scale(0);
   }
 }
-
-.text-block {
+.text-container {
   position: absolute;
-  color: #ffffff;
+  width: 100%;
   font-family: 'Poppins', sans-serif;
-  font-size: 1.5rem;
-  line-height: 2rem;
-  text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
-  opacity: 0;
-  animation: fadeInText 2s ease-in-out forwards;
+  font-size: 2.2vmin;
+  font-weight: 400;
+  color: #ffffff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+  line-height: 1.5;
 
-  &--left {
-    top: 5%; // Más cerca del borde superior
-    left: 2%; // Pegado al lateral izquierdo
-    text-align: left;
-
-    .line1 {
-      animation-delay: 5s; // Aparece después de las animaciones de las flores
-    }
-    .line2 {
-      margin-top: 1rem; // Espacio entre líneas
-      animation-delay: 7s;
-    }
+  // Primer bloque: esquina superior izquierda
+  .text-left {
+    position: absolute;
+    left: 5%;
+    top: 8%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vmin;
+    animation: fade-in 2s ease forwards;
   }
 
-  &--right {
-    top: 5%; // Más cerca del borde superior
-    right: 2%; // Pegado al lateral derecho
-    text-align: right;
-
-    .line1 {
-      animation-delay: 9s;
-    }
-    .line2 {
-      margin-top: 1rem; // Espacio entre líneas
-      animation-delay: 11s;
-    }
+  // Segundo bloque: esquina superior derecha
+  .text-right {
+    position: absolute;
+    right: 5%;
+    top: 12%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8vmin;
+    animation: fade-in 2s ease forwards;
+    animation-delay: 2.5s;
   }
 }
 
-@keyframes fadeInText {
+// Animación de aparición
+@keyframes fade-in {
   0% {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(-20px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
 }
+

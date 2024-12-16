@@ -1382,6 +1382,38 @@ body {
   animation: growing-grass-ans 1s 2s backwards;
 }
 
+// Estilo del contenedor de mensajes
+.messages {
+  position: absolute;
+  bottom: 5vmin; // Margen inferior
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #6bf0ff; // Color respetando la paleta
+  font-family: Arial, sans-serif;
+  font-size: 2vmin;
+  opacity: 0; // Inicialmente invisible
+  animation: fade-in-text 3s ease-out forwards;
+  animation-delay: 6s; // Aparece después de las animaciones existentes
+}
+
+// Mensajes individuales
+.message {
+  margin: 1vmin 0;
+}
+
+// Animación de aparición del texto
+@keyframes fade-in-text {
+  0% {
+    opacity: 0;
+    transform: translateY(2vmin);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes growing-grass-ans {
   0% {
     transform: scale(0);
